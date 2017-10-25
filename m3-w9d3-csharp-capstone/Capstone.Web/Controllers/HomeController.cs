@@ -17,7 +17,7 @@ namespace Capstone.Web.Controllers
             this.applicationDal = applicationDal;
         }
 
-        // GET: Home
+
         public ActionResult Index()
         {
             int x = applicationDal.TestMethod();
