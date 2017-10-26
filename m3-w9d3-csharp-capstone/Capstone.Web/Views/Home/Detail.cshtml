@@ -1,0 +1,33 @@
+﻿@using Capstone.Web.Models;
+@model List<ParkWeatherModel>
+
+@{
+    ViewBag.Title = "Park Weather";
+}
+
+<div>
+    @foreach (ParkWeatherModel p in Model)
+    {
+        <p>@p.FiveDayForecastValue</p>
+        <p>@p.Low / @p.High</p>
+        <p>@p.Forecast</p>
+    }
+</div>
+<div>
+    <img src="~/Content/img/parks/@(Model[0].Code).jpg" alt="park image" />
+    <h3>@Model[0].Name</h3>
+    <p>@Model[0].State</p>
+    <p>@Model[0].Acreage</p>
+    <p>@Model[0].Elevation</p>
+    <p>@Model[0].MilesOfTrail miles of trail</p>
+    <p>@Model[0].NumCampsites campsites</p>
+    <p>@Model[0].Climate</p>
+    <p>Founded @Model[0].YearFounded</p>
+    <p>@Model[0].AnnualVisitor visitors</p>
+    <p>@Model[0].Quote</p>
+    <p>@Model[0].QuoteSource</p>
+    <p>@Model[0].Description</p>
+    <p>@Model[0].EntryFee</p>
+    <p>@Model[0].NumSpecies</p>
+</div>
+

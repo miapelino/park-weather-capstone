@@ -10,7 +10,7 @@ namespace Capstone.Web.Dal
     public class ParkWeatherSqlDal : IParkWeatherDal
     {
         private readonly string connectionString;
-        private const string SQL_GetParks = "SELECT * from park";
+        private const string SQL_GetParks = "SELECT * from park join weather on weather.parkCode = park.parkCode ORDER BY weather.fiveDayForecastValue";
 
         public ParkWeatherSqlDal(string connectionString)
         {
@@ -51,8 +51,23 @@ namespace Capstone.Web.Dal
         {
             park.Code = Convert.ToString(reader["parkCode"]);
             park.Name = Convert.ToString(reader["parkName"]);
-            park.State = Convert.ToString(reader["FIRSTNAME"]);
-            park.Description = Convert.ToString(reader["RES_STREET"]);
+            park.State = Convert.ToString(reader["state"]);
+            park.Description = Convert.ToString(reader["parkDescription"]);
+            park.Acreage = Convert.ToInt32(reader["acreage"]);
+            park.Elevation = Convert.ToInt32(reader["elevationInFeet"]);
+            park.MilesOfTrail = Convert.ToDouble(reader["milesOfTrail"]);
+            park.NumCampsites = Convert.ToInt32(reader["numberOfCampsites"]);
+            park.Climate = Convert.ToString(reader["climate"]);
+            park.YearFounded = Convert.ToInt32(reader["yearFounded"]);
+            park.AnnualVisitor = Convert.ToInt32(reader["annualVisitorCount"]);
+            park.Quote = Convert.ToString(reader["inspirationalQuote"]);
+            park.QuoteSource = Convert.ToString(reader["inspirationalQuoteSource"]);
+            park.EntryFee = Convert.ToInt32(reader["entryFee"]);
+            park.NumSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"]);
+            park.FiveDayForecastValue = Convert.ToInt32(reader["fiveDayForecastValue"]);
+            park.Low = Convert.ToInt32(reader["low"]);
+            park.High = Convert.ToInt32(reader["high"]);
+            park.Forecast = Convert.ToString(reader["forecast"]);
         }
     }
 }

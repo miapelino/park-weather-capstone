@@ -33,5 +33,18 @@ namespace Capstone.Web.Models
             Low = Convert.ToInt32((low - 32) / 1.8);
             High = Convert.ToInt32((high - 32) / 1.8);
         }
+
+        public List<ParkWeatherModel> DetailParkList(string name, List<ParkWeatherModel> parkList)
+        {
+            List<ParkWeatherModel> parkDetails = new List<ParkWeatherModel>();
+            foreach (ParkWeatherModel p in parkList)
+            {
+                if (name == p.Name)
+                {
+                    parkDetails.Add(p);
+                }
+            }
+            return parkDetails;
+        }
     }
 }
