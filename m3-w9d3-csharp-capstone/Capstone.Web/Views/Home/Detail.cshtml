@@ -29,8 +29,8 @@
     @using (Html.BeginForm("Detail", "Home", FormMethod.Post))
     {
         <div>
-            @Html.RadioButtonFor(m => m[0].IsCelsius, false, new { id = "fahrenheit" }) Fahrenheit
-            @Html.RadioButtonFor(m => m[0].IsCelsius, true, new { id = "celsius" }) Celsius
+            @Html.RadioButtonFor(Model => Model[0].IsCelsius, false) Fahrenheit
+            @Html.RadioButtonFor(Model => Model[0].IsCelsius, true) Celsius
         </div>
         <button>Submit</button>
     }

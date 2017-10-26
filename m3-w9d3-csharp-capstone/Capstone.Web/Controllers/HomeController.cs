@@ -13,13 +13,10 @@ namespace Capstone.Web.Controllers
 
         private readonly IParkWeatherDal applicationDal;
 
-        
-
         public HomeController(IParkWeatherDal applicationDal)
         {
             this.applicationDal = applicationDal;
-    }
-
+        }
 
         public ActionResult Index()
         {
