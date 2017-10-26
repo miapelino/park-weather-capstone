@@ -6,11 +6,33 @@
 }
 
 <div>
-    @foreach (ParkWeatherModel p in Model)
+    @if (Model[0].IsCelsius == false)
     {
-        <p>@p.FiveDayForecastValue</p>
-        <p>@p.Low / @p.High</p>
-        <p>@p.Forecast</p>
+        foreach (ParkWeatherModel p in Model)
+        {
+            <p>@p.FiveDayForecastValue</p>
+            <p>@p.Low / @p.High</p>
+            <p>@p.Forecast</p>
+        }
+    }
+    else
+    {
+        foreach (ParkWeatherModel p in Model)
+        {
+            <p>@p.FiveDayForecastValue</p>
+            <p>@p.ConvertToCelsius(p.Low) / @p.ConvertToCelsius(p.High)</p>
+            <p>@p.Forecast</p>
+        }
+    }
+</div>
+<div>
+    @using (Html.BeginForm("Detail", "Home", FormMethod.Post))
+    {
+        <div>
+            @Html.RadioButtonFor(m => m[0].IsCelsius, false, new { id = "fahrenheit" }) Fahrenheit
+            @Html.RadioButtonFor(m => m[0].IsCelsius, true, new { id = "celsius" }) Celsius
+        </div>
+        <button>Submit</button>
     }
 </div>
 <div>

@@ -27,11 +27,12 @@ namespace Capstone.Web.Models
         public int Low { get; set; }
         public int High { get; set; }
         public string Forecast { get; set; }
+        public bool IsCelsius { get; set; }
 
-        public void ConvertToCelsius(int low, int high)
+        public int ConvertToCelsius(int temp)
         {
-            Low = Convert.ToInt32((low - 32) / 1.8);
-            High = Convert.ToInt32((high - 32) / 1.8);
+            int newTemp = Convert.ToInt32((temp - 32) / 1.8);
+            return newTemp;
         }
 
         public List<ParkWeatherModel> DetailParkList(string name, List<ParkWeatherModel> parkList)

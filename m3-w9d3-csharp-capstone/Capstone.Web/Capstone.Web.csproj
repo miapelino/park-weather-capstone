@@ -139,6 +139,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Dal\IParkWeatherDal.cs" />
     <Compile Include="Dal\ParkWeatherSqlDal.cs" />
+    <Compile Include="Dal\SurveySqlDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

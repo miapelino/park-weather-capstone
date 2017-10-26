@@ -13,10 +13,12 @@ namespace Capstone.Web.Controllers
 
         private readonly IParkWeatherDal applicationDal;
 
+        
+
         public HomeController(IParkWeatherDal applicationDal)
         {
             this.applicationDal = applicationDal;
-        }
+    }
 
 
         public ActionResult Index()
@@ -30,6 +32,26 @@ namespace Capstone.Web.Controllers
             List<ParkWeatherModel> parkWeather = applicationDal.GetParks();
             ParkWeatherModel tempPark = new ParkWeatherModel();
             List<ParkWeatherModel> detailParkList = tempPark.DetailParkList(id, parkWeather);
+            return View(detailParkList);
+        }
+
+        [HttpPost]
+        public ActionResult Detail(string id, bool isCelsius)
+        {
+            List<ParkWeatherModel> parkWeather = applicationDal.GetParks();
+            ParkWeatherModel tempPark = new ParkWeatherModel();
+
+            List<ParkWeatherModel> detailParkList = Session["IsCelsius"] as List<ParkWeatherModel>;
+            if (detailParkList == null)
+            {
+                detailParkList = new List<ParkWeatherModel>();
+            }
+
+            detailParkList = tempPark.DetailParkList(id, parkWeather);
+            detailParkList[0].IsCelsius = isCelsius;
+
+            Session["IsCelsius"] = detailParkList;
+
             return View(detailParkList);
         }
     }
