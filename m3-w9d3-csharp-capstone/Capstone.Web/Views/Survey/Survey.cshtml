@@ -1,7 +1,7 @@
 ﻿@using Capstone.Web.Models;
 @model  Survey
 @{
-   ViewBag.Name = "Survey";
+    ViewBag.Name = "Survey";
 }
 
 <h2> Today's Survey </h2>
@@ -14,7 +14,7 @@
     </div>
     <div>
         @Html.Label("State", "What State Are You From?")
-        @Html.TextBoxFor(m => m.State)
+        @Html.DropDownListFor(m => m.State, Survey.ChooseState)
     </div>
     <div>
         @Html.Label("ActivityLevel", "What Is Your Activity Level?")
@@ -22,7 +22,7 @@
     </div>
     <div>
         @Html.Label("ParkCode", "What is your favorite park?")
-        @Html.DropDownListFor(m => m.ParkCode, Survey.ChoosePark)
+        @Html.DropDownListFor(m => m.ParkCode, Model.DropDownList)
     </div>
     <button>Submit!</button>
 }

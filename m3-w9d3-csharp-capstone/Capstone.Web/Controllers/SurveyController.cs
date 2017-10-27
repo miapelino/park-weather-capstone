@@ -21,7 +21,9 @@ namespace Capstone.Web.Controllers
 
         public ActionResult Survey()
         {
-            return View();
+            Survey surveyDropDown = new Survey();
+            surveyDropDown.DropDownList = surveyDal.GetParkList();
+            return View(surveyDropDown);
         }
 
         [HttpPost]

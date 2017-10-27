@@ -29,27 +29,35 @@ namespace Capstone.Web.Controllers
             List<ParkWeatherModel> parkWeather = applicationDal.GetParks();
             ParkWeatherModel tempPark = new ParkWeatherModel();
             List<ParkWeatherModel> detailParkList = tempPark.DetailParkList(id, parkWeather);
+
+            bool sessionCelsius;
+
+            if (Session["IsCelsius"] == null)
+            {
+                sessionCelsius = false;
+            }
+            else
+            {
+                sessionCelsius = (bool)Session["IsCelsius"];
+            }
+
+            Session["IsCelsius"] = sessionCelsius;
+
             return View(detailParkList);
         }
 
         [HttpPost]
-        public ActionResult Detail(string id, bool isCelsius)
+        public ActionResult Detail(List<ParkWeatherModel> detailParkList)
         {
-            List<ParkWeatherModel> parkWeather = applicationDal.GetParks();
-            ParkWeatherModel tempPark = new ParkWeatherModel();
+            bool objCelsius = (bool)Session["IsCelsius"];
+            bool sessionCelsius;
 
-            List<ParkWeatherModel> detailParkList = Session["IsCelsius"] as List<ParkWeatherModel>;
-            if (detailParkList == null)
-            {
-                detailParkList = new List<ParkWeatherModel>();
-            }
+            sessionCelsius = detailParkList[0].IsCelsius;
 
-            detailParkList = tempPark.DetailParkList(id, parkWeather);
-            detailParkList[0].IsCelsius = isCelsius;
+            string parkName = detailParkList[0].Name;
+            Session["IsCelsius"] = sessionCelsius;
 
-            Session["IsCelsius"] = detailParkList;
-
-            return View(detailParkList);
+            return RedirectToAction("Detail", new { id = parkName });
         }
     }
 }

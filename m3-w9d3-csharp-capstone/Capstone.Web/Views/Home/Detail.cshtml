@@ -5,51 +5,108 @@
     ViewBag.Title = "Park Weather";
 }
 
+<h3>@Model[0].Name</h3>
 <div>
-    @if (Model[0].IsCelsius == false)
-    {
-        foreach (ParkWeatherModel p in Model)
+    <p class="small-text">
+        <span class="quote">"
+            @Model[0].Quote"
+        </span><br>
+        ~ @Model[0].QuoteSource
+    </p>
+</div>
+<div class="inline">
+    <img id="detail-img" src="~/Content/img/parks/@(Model[0].Code).jpg" alt="park image" />
+    <div id="detail-display">
+        <table>
+            <tr><td>State</td><td>@Model[0].State</td></tr>
+            <tr><td>Acreage</td><td>@Model[0].Acreage</td></tr>
+            <tr><td>Elevation</td><td>@Model[0].Elevation</td></tr>
+            <tr><td>Miles of Trail</td><td>@Model[0].MilesOfTrail</td></tr>
+            <tr><td>Entry Fee</td><td>$@Model[0].EntryFee</td></tr>
+            <tr><td>Number of Campsites</td><td>@Model[0].NumCampsites</td></tr>
+            <tr><td>Climate</td><td>@Model[0].Climate</td></tr>
+            <tr><td>Year Founded</td><td>@Model[0].YearFounded</td></tr>
+            <tr><td>Annual Visitors</td><td>@Model[0].AnnualVisitor</td></tr>
+            <tr><td>Number of Species</td><td>@Model[0].NumSpecies</td></tr>
+        </table>
+        <p>@Model[0].Description</p>
+    </div>
+</div>
+<div>
+    <div>
+        <table>
+            @if ((bool)Session["IsCelsius"] == false)
+            {
+                List<string> forecastRecommendations = new List<string>();
+                <tr>
+                    @foreach (ParkWeatherModel p in Model)
+                {
+
+                    forecastRecommendations = p.ForecastRecommendations(p);
+
+                        <td>
+                            <img src="~/Content/img/weather/@(p.GetForecastImageName(p.Forecast)).png" alt="@p.Forecast image">
+                            <p>
+                                Day @p.FiveDayForecastValue:<br>
+                                Low: @p.Low F / High: @p.High F<br>
+                                @p.Forecast
+                                <ul>
+                                    @foreach (string r in forecastRecommendations)
+                                    {
+                                        <li>@r</li>
+                                    }
+                                </ul>
+                            </p>
+                        </td>
+                    }
+                </tr>
+            }
+            else if ((bool)Session["IsCelsius"])
+            {
+                List<string> forecastRecommendations = new List<string>();
+                <tr>
+                    @foreach (ParkWeatherModel p in Model)
+                {
+
+                    forecastRecommendations = p.ForecastRecommendations(p);
+
+                        <td>
+                            <img src="~/Content/img/weather/@(p.GetForecastImageName(p.Forecast)).png" alt="@p.Forecast image" />
+                            <p>
+                                Day @p.FiveDayForecastValue<br>
+                                Low:  @p.ConvertToCelsius(p.Low)  / High: @p.ConvertToCelsius(p.High) C<br>
+                                @p.Forecast
+                                <ul>
+                                    @foreach (string r in forecastRecommendations)
+                                    {
+                                        <li>@r</li>
+                                    }
+                                </ul>
+                            </p>
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+
+    </div>
+
+    <div>
+        @using (Html.BeginForm("Detail", "Home", FormMethod.Post))
         {
-            <p>@p.FiveDayForecastValue</p>
-            <p>@p.Low / @p.High</p>
-            <p>@p.Forecast</p>
+            <div id="celsius-container">
+                <ul id="radio-buttons">
+                    <li> @Html.RadioButtonFor(Model => Model[0].IsCelsius, false) Fahrenheit</li>
+                    <li> @Html.RadioButtonFor(Model => Model[0].IsCelsius, true) Celsius</li>
+                </ul>
+                @Html.HiddenFor(m => Model[0].Name)
+
+                <button id="button">Submit</button>
+            </div>
         }
-    }
-    else
-    {
-        foreach (ParkWeatherModel p in Model)
-        {
-            <p>@p.FiveDayForecastValue</p>
-            <p>@p.ConvertToCelsius(p.Low) / @p.ConvertToCelsius(p.High)</p>
-            <p>@p.Forecast</p>
-        }
-    }
+    </div>
 </div>
-<div>
-    @using (Html.BeginForm("Detail", "Home", FormMethod.Post))
-    {
-        <div>
-            @Html.RadioButtonFor(Model => Model[0].IsCelsius, false) Fahrenheit
-            @Html.RadioButtonFor(Model => Model[0].IsCelsius, true) Celsius
-        </div>
-        <button>Submit</button>
-    }
-</div>
-<div>
-    <img src="~/Content/img/parks/@(Model[0].Code).jpg" alt="park image" />
-    <h3>@Model[0].Name</h3>
-    <p>@Model[0].State</p>
-    <p>@Model[0].Acreage</p>
-    <p>@Model[0].Elevation</p>
-    <p>@Model[0].MilesOfTrail miles of trail</p>
-    <p>@Model[0].NumCampsites campsites</p>
-    <p>@Model[0].Climate</p>
-    <p>Founded @Model[0].YearFounded</p>
-    <p>@Model[0].AnnualVisitor visitors</p>
-    <p>@Model[0].Quote</p>
-    <p>@Model[0].QuoteSource</p>
-    <p>@Model[0].Description</p>
-    <p>@Model[0].EntryFee</p>
-    <p>@Model[0].NumSpecies</p>
-</div>
+
+
+
 

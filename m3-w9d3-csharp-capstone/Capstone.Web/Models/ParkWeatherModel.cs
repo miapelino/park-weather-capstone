@@ -48,5 +48,51 @@ namespace Capstone.Web.Models
             }
             return parkDetails;
         }
+
+        public List<string> ForecastRecommendations(ParkWeatherModel parkWeather)
+        {
+            List<string> recommendations = new List<string>();
+            ParkWeatherModel tempParkWeather = parkWeather;
+            if (tempParkWeather.Forecast == "snow")
+            {
+                recommendations.Add("Pack snowshoes");
+            }
+            else if (tempParkWeather.Forecast == "rain" || tempParkWeather.Forecast == "thunderstorms")
+            {
+                recommendations.Add("Pack rain gear and wear waterproof shoes");
+            }
+            if (tempParkWeather.Forecast == "thunderstorms")
+            {
+                recommendations.Add("Seek shelter and avoid hiking on exposed ridges");
+            }
+            else if (tempParkWeather.Forecast == "sunny")
+            {
+                recommendations.Add("Pack sunblock");
+            }
+            if (tempParkWeather.High > 75)
+            {
+                recommendations.Add("Bring an extra gallon of water");
+            }
+            else if (tempParkWeather.Low < 20)
+            {
+                recommendations.Add("Warning: exposure to frigid temperatures is dangerous");
+            }
+            if ((tempParkWeather.High - tempParkWeather.Low) > 20)
+            {
+                recommendations.Add("Wear breathable layers");
+            }
+
+            return recommendations;
+        }
+
+        public string GetForecastImageName(string forecast)
+        {
+            string forecastImgName = Forecast;
+            if (forecastImgName == "partly cloudy")
+            {
+                forecastImgName = "partlyCloudy";
+            }
+            return forecastImgName;               
+        }
     }
 }

@@ -130,6 +130,7 @@
     <Content Include="Content\img\weather\snow.png" />
     <Content Include="Content\img\weather\sunny.png" />
     <Content Include="Content\img\weather\thunderstorms.png" />
+    <Content Include="Content\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -1,0 +1,133 @@
+﻿body {
+    background: #D9D8DF;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+#header {
+    z-index: 2;
+    position: fixed;
+    height: 100px;
+    top: 0;
+    width: 100%;
+    line-height: 60px;
+    background: #000000;
+}
+
+    #header img {
+        top: 0px;
+        margin: 0px;
+        height: 90px;
+        width: auto;
+    }
+
+#nav {
+    position: absolute;
+    right: 5px;
+    top: -15px;
+    height: 60px;
+    text-transform: uppercase;
+}
+
+    #nav ul li {
+        float: left;
+        list-style: none;
+    }
+
+#navlinks {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1500px;
+    font-family: helvetica, sans-serif;
+}
+
+.content {
+    position: relative;
+    padding-top: 80px;
+    top: 45px;
+    text-align: center;
+}
+
+.quote {
+    font-style: italic;
+    width: 800px;
+}
+
+.small-text {
+    font-size: small;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.inline {
+    display: inline;
+}
+
+.index-images {
+    width: 420px;
+    height: auto;
+}
+
+.index-tiles {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+}
+
+#index-text {
+    width: 420px;
+    text-align: left;
+}
+
+#inline-block {
+    display: inline-block;
+}
+
+#detail-img {
+    vertical-align: top;
+    text-align: left;
+    display: inline-block;
+    margin-right: 30px;
+    width: 650px;
+    height: auto;
+}
+
+#detail-display {
+    vertical-align: top;
+    text-align: left;
+    display: inline-block;
+    width: 500px;
+}
+
+#celsius-container {
+    float: right;
+}
+
+#radio-buttons {
+    text-align: left;
+    list-style: none;
+    display: inline-block;
+}
+
+#button {
+    display: inline-block;
+}
+
+
+
+
