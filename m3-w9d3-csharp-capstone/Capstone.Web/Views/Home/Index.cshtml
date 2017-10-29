@@ -7,15 +7,16 @@
 <h1>Welcome To National Park, Geek</h1>
     @for (int i = 0; i < 10; i++)
     {
+        Model[i].Description = Model[i].GetShortDescription();
         <div class="index-tiles">
             <a href="@Url.Action("Detail", "Home", new { id = Model[i].Name })">
                 <img class="index-images" src="~/Content/img/parks/@(Model[i].Code).jpg" alt="park image" />
                 <div id="index-text">
-                    <div class="inline">
-                        <h4 id="inline-block">@Model[i].Name</h4>
+                    <div class="index-name-adjust">
+                        <h4 id="inline-block">@Model[i].Name | </h4>
                         <p id="inline-block">@Model[i].State<p />
                     </div>
-                    <p>@Model[i].Description</p>
+                    <p class="index-desc-adjust">@Model[i].Description <span id="read-more">[read more...]</span></p>
                 </div>
             </a>
         </div>

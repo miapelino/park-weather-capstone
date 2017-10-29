@@ -64,7 +64,7 @@ namespace Capstone.Web.Dal
             park.QuoteSource = Convert.ToString(reader["inspirationalQuoteSource"]);
             park.EntryFee = Convert.ToInt32(reader["entryFee"]);
             park.NumSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"]);
-            park.FiveDayForecastValue = Convert.ToInt32(reader["fiveDayForecastValue"]);
+            park.FiveDayForecastValue = Convert.ToString(reader["fiveDayForecastValue"]);
             park.Low = Convert.ToInt32(reader["low"]);
             park.High = Convert.ToInt32(reader["high"]);
             park.Forecast = Convert.ToString(reader["forecast"]);

@@ -57,10 +57,13 @@ namespace Capstone.Web.Tests.Models
                 High = 85
             };
 
-            testObject.ConvertToCelsius(testObject.Low, testObject.High);
+            int result = testObject.ConvertToCelsius(testObject.Low);
 
-            Assert.AreEqual(16, testObject.Low);
-            Assert.AreEqual(29, testObject.High);
+            Assert.AreEqual(16, result);
+
+            result = testObject.ConvertToCelsius(testObject.High);
+
+            Assert.AreEqual(29, result);
 
         }
 

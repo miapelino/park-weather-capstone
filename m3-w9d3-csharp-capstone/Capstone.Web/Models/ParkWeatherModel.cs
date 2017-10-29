@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Globalization;
 
 namespace Capstone.Web.Models
 {
@@ -23,7 +24,7 @@ namespace Capstone.Web.Models
         public int EntryFee { get; set; }
         public int NumSpecies { get; set; }
 
-        public int FiveDayForecastValue { get; set; }
+        public string FiveDayForecastValue { get; set; }
         public int Low { get; set; }
         public int High { get; set; }
         public string Forecast { get; set; }
@@ -85,6 +86,18 @@ namespace Capstone.Web.Models
             return recommendations;
         }
 
+        public string GetShortDescription()
+        {
+            string result = "";
+            string[] description = Description.Split('.');
+            if (description[0].Contains("Mt"))
+            {
+                result += description[0] + "." + description[1] + ".";
+            }
+            else result = description[0] + ".";
+            return result;
+        }
+
         public string GetForecastImageName(string forecast)
         {
             string forecastImgName = Forecast;
@@ -92,7 +105,40 @@ namespace Capstone.Web.Models
             {
                 forecastImgName = "partlyCloudy";
             }
-            return forecastImgName;               
+            return forecastImgName;
+        }
+
+        public string GetDayOfForecast()
+        {
+            string weekDay = "";
+
+            if (FiveDayForecastValue == "1")
+            {
+                weekDay = DateTime.Now.DayOfWeek + ", " + DateTime.Now.ToString("MM/dd");
+            }
+            else if (FiveDayForecastValue == "2")
+            {
+                weekDay = DateTime.Now.AddDays(1).DayOfWeek + ", " + DateTime.Now.AddDays(1).ToString("MM/dd");
+            }
+            else if (FiveDayForecastValue == "3")
+            {
+                weekDay = DateTime.Now.AddDays(2).DayOfWeek + ", " + DateTime.Now.AddDays(2).ToString("MM/dd");
+            }
+            else if (FiveDayForecastValue == "4")
+            {
+                weekDay = DateTime.Now.AddDays(3).DayOfWeek + ", " + DateTime.Now.AddDays(3).ToString("MM/dd");
+            }
+            else if (FiveDayForecastValue == "5")
+            {
+                weekDay = DateTime.Now.AddDays(4).DayOfWeek + ", " + DateTime.Now.AddDays(4).ToString("MM/dd");
+            }
+            return weekDay;
+        }
+
+        public string ToTitleCase(string text)
+        {
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            return textInfo.ToTitleCase(text);
         }
     }
 }

@@ -9,11 +9,11 @@
 <body>
     <header id="header">
         <div class="container">
-            <img src="~/Content/img/logo.png" alt="National Parks Geek logo" />
+            <img src="~/Content/img/logo2.png" alt="National Parks Geek logo" />
             <nav id="nav">
                 <ul>
-                    <li>@(Html.ActionLink("Home", "Index", "Home", new { @id = "navlinks" })) </li>
-                    <li>@(Html.ActionLink("Survey", "Survey", "Survey", new { @id = "navlinks" }))</li>
+                    <li>@(Html.ActionLink("Home", "Index", "Home", null, new { @id = "navlinks" })) </li>
+                    <li>@(Html.ActionLink("Survey", "Survey", "Survey", null, new { @id = "navlinks" }))</li>
                 </ul>
             </nav>
         </div>

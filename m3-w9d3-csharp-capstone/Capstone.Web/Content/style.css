@@ -1,4 +1,5 @@
-﻿body {
+﻿/*Layout Page CSS*/
+body {
     background: #D9D8DF;
     margin: 0;
     padding: 0;
@@ -20,8 +21,8 @@
 
     #header img {
         top: 0px;
-        margin: 0px;
-        height: 90px;
+        margin: 13px;
+        height: 70px;
         width: auto;
     }
 
@@ -48,7 +49,7 @@
 .container {
     position: relative;
     margin: 0 auto;
-    width: 100%;
+    width: 90%;
     max-width: 1500px;
     font-family: helvetica, sans-serif;
 }
@@ -57,7 +58,39 @@
     position: relative;
     padding-top: 80px;
     top: 45px;
-    text-align: center;
+}
+
+/*Element Selectors*/
+a {
+    text-decoration: none;
+    color: black;
+}
+
+    a h4:hover {
+        color: darkslateblue;
+    }
+
+table {
+    width: 100%;
+    padding: 5px 20px 5px 20px;
+}
+
+th {
+    font-size: large;
+    height: 60px;
+}
+
+/*General Styles*/
+.bold {
+    font-weight: 700;
+}
+
+.inline {
+    display: inline;
+}
+
+#inline-block {
+    display: inline-block;
 }
 
 .quote {
@@ -65,17 +98,21 @@
     width: 800px;
 }
 
+.red-text {
+    color: firebrick;
+}
+
 .small-text {
-    font-size: small;
+    font-size: 13px;
 }
 
-a {
-    text-decoration: none;
-    color: black;
+/*Index Page Styles*/
+.index-name-adjust {
+    margin: -10px 5px 5px 5px;
 }
 
-.inline {
-    display: inline;
+.index-desc-adjust {
+    margin: -20px 5px 5px 5px;
 }
 
 .index-images {
@@ -94,10 +131,16 @@ a {
     text-align: left;
 }
 
-#inline-block {
-    display: inline-block;
+#read-more {
+    font-size: small;
+    font-weight: bold;
 }
 
+    #read-more:hover {
+        color: darkslateblue;
+    }
+
+/*Detail Page Styles*/
 #detail-img {
     vertical-align: top;
     text-align: left;
@@ -112,10 +155,13 @@ a {
     text-align: left;
     display: inline-block;
     width: 500px;
+    margin-left: 5%;
 }
 
-#celsius-container {
-    float: right;
+
+#celsius-container td {
+    border-collapse: collapse;
+    width: 100%
 }
 
 #radio-buttons {
@@ -126,8 +172,55 @@ a {
 
 #button {
     display: inline-block;
+    margin: 0 5px 5px 0px;
+}
+
+.weather-table {
+    border-collapse: collapse;
+}
+
+    .weather-table td {
+        border-right: solid 1px #000;
+        border-left: solid 1px #000;
+        width: 20% !important;
+        text-align: center;
+        vertical-align: top;
+    }
+
+.weather-container {
+    background-color: white;
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.weather-temps {
+    font-weight: 700;
+}
+
+#weather-img {
+    height: 75px;
+    width: auto;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#weather-recommendations {
+    text-align: left;
+    list-style-type: square
+}
+
+#weather-forecast {
+    text-align: center;
+    font-weight: 800;
+    font-size: medium;
 }
 
 
+/*Survey Page Styles*/
 
+
+
+/*Survey Results Page Styles*/
 
