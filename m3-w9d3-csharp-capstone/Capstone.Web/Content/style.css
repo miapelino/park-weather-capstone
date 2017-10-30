@@ -220,7 +220,58 @@ th {
 
 /*Survey Page Styles*/
 
+#head-color {
+    color:darkgreen
+}
 
+.survey-container {
+    background-color: white;
+    width: 35%;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 15px;
+    float:left;
+    position:relative;
+    left:85px
+}
+
+.survey-input {
+    text-align: left;
+}
+
+#submit-button {
+    margin-top:30px;
+}
+
+#survey-image {
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    float: right;
+    height: 342px;
+    width: auto;
+    position: relative;
+    right: 85px
+}
+
+#survey-results-image {
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    float: right;
+    height: 275px;
+    width: auto;
+    position: relative;
+    right: 85px
+}
+.survey-elements {
+    padding-bottom:10px
+}
 
 /*Survey Results Page Styles*/
 

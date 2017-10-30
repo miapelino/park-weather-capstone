@@ -50,7 +50,7 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult Detail(List<ParkWeatherModel> detailParkList)
         {
-            bool objCelsius = (bool)Session["IsCelsius"];
+            //bool objCelsius = (bool)Session["IsCelsius"];
             bool sessionCelsius;
 
             sessionCelsius = detailParkList[0].IsCelsius;

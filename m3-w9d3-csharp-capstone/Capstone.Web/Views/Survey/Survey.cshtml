@@ -4,25 +4,28 @@
     ViewBag.Name = "Survey";
 }
 
-<h2> Today's Survey </h2>
+<div class="survey-container">
+    <h2 id="head-color"> Today's Survey </h2>
 
-@using (Html.BeginForm("Survey", "Survey", FormMethod.Post))
-{
-    <div>
-        @Html.Label("Email", "Enter Your Email:")
-        @Html.TextBoxFor(m => m.Email)
-    </div>
-    <div>
-        @Html.Label("State", "What State Are You From?")
-        @Html.DropDownListFor(m => m.State, Survey.ChooseState)
-    </div>
-    <div>
-        @Html.Label("ActivityLevel", "What Is Your Activity Level?")
-        @Html.DropDownListFor(m => m.ActivityLevel, Survey.ActivityLevels)
-    </div>
-    <div>
-        @Html.Label("ParkCode", "What is your favorite park?")
-        @Html.DropDownListFor(m => m.ParkCode, Model.DropDownList)
-    </div>
-    <button>Submit!</button>
-}
+    @using (Html.BeginForm("Survey", "Survey", FormMethod.Post))
+    {
+        <div class="survey-elements">
+            @Html.Label("Email", "Enter Your Email:")
+            <div class="survey-input">@Html.TextBoxFor(m => m.Email)</div>
+        </div>
+        <div class="survey-elements">
+            @Html.Label("State", "What State Are You From?")
+            <div class="survey-input">@Html.DropDownListFor(m => m.State, Survey.ChooseState)</div>
+        </div>
+        <div class="survey-elements">
+            @Html.Label("ActivityLevel", "What Is Your Activity Level?")
+            <div class="survey-input">@Html.DropDownListFor(m => m.ActivityLevel, Survey.ActivityLevels)</div>
+        </div>
+        <div class="survey-elements">
+            @Html.Label("ParkCode", "What is your favorite park?")
+            <div class="survey-input"> @Html.DropDownListFor(m => m.ParkCode, Model.DropDownList)</div>
+        </div>
+        <button id="submit-button">Submit!</button>
+    }
+</div>
+    <img id="survey-image" src="~/Content/img/random/images.jpg" />

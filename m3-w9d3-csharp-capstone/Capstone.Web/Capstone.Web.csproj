@@ -130,6 +130,10 @@
     <Content Include="Content\img\parks\rmnp.jpg" />
     <Content Include="Content\img\parks\ynp.jpg" />
     <Content Include="Content\img\parks\ynp2.jpg" />
+    <Content Include="Content\img\random\2010-brown-bear.jpg" />
+    <Content Include="Content\img\random\images.jpg" />
+    <Content Include="Content\img\random\mother-bear-cubs-animal-parenting-fb2__700-png.jpg" />
+    <Content Include="Content\img\random\p02b17w1.jpg" />
     <Content Include="Content\img\scenery.png" />
     <Content Include="Content\img\weather\cloudy.png" />
     <Content Include="Content\img\weather\partlyCloudy.png" />

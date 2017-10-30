@@ -4,9 +4,15 @@
     ViewBag.Name = "Survey Results";
 }
 
-<h2> Thanks for your input! Survey Results: </h2>
+<div class="survey-container">
+    <h2 id="head-color"> Thanks for your input! Survey Results: </h2>
 
-@foreach (Survey s in Model)
-{
-    <p>@s.Name | @s.Votes  votes</p>
-}
+    @foreach (Survey s in Model)
+    {
+        if (s.Votes >= 0)
+        {
+            <p>@s.Name | @s.Votes  votes</p>
+        }
+    }
+</div>
+<img id="survey-results-image" src="~/Content/img/random//mother-bear-cubs-animal-parenting-fb2__700-png.jpg" />
