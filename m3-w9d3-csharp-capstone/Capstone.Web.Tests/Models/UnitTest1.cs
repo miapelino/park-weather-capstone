@@ -91,5 +91,25 @@ namespace Capstone.Web.Tests.Models
             Assert.AreEqual(4, testList[3].FiveDayForecastValue);
             Assert.AreEqual(5, testList[4].FiveDayForecastValue);
         }
+
+        [TestMethod]
+        public void ForecastRecommendationsTest()
+        {
+            //arrange
+            ParkWeatherSqlDal applicationDal = new ParkWeatherSqlDal(connectionString);
+            List<ParkWeatherModel> tempList = applicationDal.GetParks();
+            ParkWeatherModel tempPark = new ParkWeatherModel();
+
+            //act
+            List<ParkWeatherModel> testList = tempPark.DetailParkList("Awesome National Park", tempList);
+
+            //assert
+            Assert.AreEqual("sunny", testList[0].Forecast);
+            Assert.AreEqual("dark", testList[1].Forecast);
+            Assert.AreEqual("dry", testList[2].Forecast);
+            Assert.AreEqual("wet", testList[3].Forecast);
+            Assert.AreEqual("cloudy", testList[4].Forecast);
+
+        }
     }
 }

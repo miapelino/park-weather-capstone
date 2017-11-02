@@ -9,10 +9,7 @@
 
     @foreach (Survey s in Model)
     {
-        if (s.Votes >= 0)
-        {
-            <p>@s.Name | @s.Votes  votes</p>
-        }
+        <p>@s.Name | @s.Votes  votes</p>
     }
 </div>
 <img id="survey-results-image" src="~/Content/img/random//mother-bear-cubs-animal-parenting-fb2__700-png.jpg" />

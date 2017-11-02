@@ -84,19 +84,5 @@ namespace Capstone.Web.Models
             new SelectListItem() { Text = "active", Value = "active"},
             new SelectListItem() { Text = "extremely active", Value = "extremely active"}
         };
-
-        
-
-
-
-
-            //} = new List<SelectListItem>()
-            //{
-            //    new SelectListItem() { Text = "Cuyahoga Valley", Value = "CVNP"},
-            //    new SelectListItem() { Text = "Everglades", Value = "ENP"},
-            //    new SelectListItem() { Text = "Grand Canyon", Value = "GCNP"},
-            //    new SelectListItem() { Text = "Glacier", Value = "GNP"}
-            //};
-
     }
 }
