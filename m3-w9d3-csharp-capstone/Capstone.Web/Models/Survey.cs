@@ -96,7 +96,10 @@ namespace Capstone.Web.Models
             new SelectListItem() { Text = "active", Value = "active"},
             new SelectListItem() { Text = "extremely active", Value = "extremely active"}
         };
+<<<<<<< HEAD
         
 
+=======
+>>>>>>> f8ade6b01088c083160acf6d6d8693270fd7c070
     }
 }
