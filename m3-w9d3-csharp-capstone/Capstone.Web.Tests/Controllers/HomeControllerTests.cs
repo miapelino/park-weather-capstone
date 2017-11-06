@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Capstone.Web.Dal;
+using Capstone.Web.Models;
+using Moq;
 
 namespace Capstone.Web.Controllers.Tests
 {
@@ -16,13 +19,15 @@ namespace Capstone.Web.Controllers.Tests
         public void HomeController_IndexAction_ReturnIndexView()
         {
             //Arrange
-            HomeController controller = new HomeController(null);
+            Mock<IParkWeatherDal> mockDal = new Mock<IParkWeatherDal>();
+            HomeController controller = new HomeController(mockDal.Object);
 
             //Act
             ViewResult result = controller.Index() as ViewResult;
 
             //Assert
-            Assert.AreEqual("Index", result.ViewName);
+            Assert.IsNotNull(result);
+            Assert.AreEqual("", result.ViewName);
         }
     }
 }

@@ -5,7 +5,7 @@
     ViewBag.Title = "Home";
 }
 <h1>Welcome To National Park, Geek</h1>
-    @for (int i = 0; i < 10; i++)
+    @for (int i = 0; i < Model.Count; i++)
     {
         Model[i].Description = Model[i].GetShortDescription();
         <div class="index-tiles">

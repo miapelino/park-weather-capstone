@@ -5,13 +5,14 @@
 }
 
 <div class="survey-container">
-    <h2 id="head-color"> Today's Survey </h2>
+    <h2 style="text-align: center" id="head-color"> Vote For Your Favorite National Park!! </h2>
 
     @using (Html.BeginForm("Survey", "Survey", FormMethod.Post))
     {
         <div class="survey-elements">
             @Html.Label("Email", "Enter Your Email:")
             <div class="survey-input">@Html.TextBoxFor(m => m.Email)</div>
+            <span class="survey-required"><br />@Html.ValidationMessageFor(m => m.Email)</span>
         </div>
         <div class="survey-elements">
             @Html.Label("State", "What State Are You From?")

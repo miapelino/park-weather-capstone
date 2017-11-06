@@ -88,7 +88,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeControllerTests.cs" />
-    <Compile Include="Models\UnitTest1.cs" />
+    <Compile Include="Models\DALTests.cs" />
+    <Compile Include="Models\UnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

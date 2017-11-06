@@ -17,11 +17,11 @@ namespace Capstone.Web.UITests.PageObjects
             PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.Id, Using = "Low")]
-        public IWebElement Low { get; set; }
+        [FindsBy(How = How.Id, Using = "C")]
+        public IWebElement C { get; set; }
 
-        [FindsBy(How = How.Id, Using = "High")]
-        public IWebElement High { get; set; }
+        [FindsBy(How = How.Id, Using = "F")]
+        public IWebElement F { get; set; }
 
         [FindsBy(How = How.Name, Using = "IsCelsius")]
         public IWebElement IsCelsius { get; set; }

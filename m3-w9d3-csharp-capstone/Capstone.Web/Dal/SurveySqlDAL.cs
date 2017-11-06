@@ -36,7 +36,6 @@ namespace Capstone.Web.Dal
                     {
                         Survey s = new Survey();
                         s.Votes = Convert.ToInt32(results["votes"]);
-                        s.ParkCode = Convert.ToString(results["parkCode"]);
                         s.Name = Convert.ToString(results["parkName"]);
                         surveyResults.Add(s);
                     }

@@ -58,11 +58,11 @@
 
                     @if ((bool)Session["IsCelsius"] == false)
                     {
-                        <p class="weather-temps"><strong id="Low">@p.Low</strong> F / <strong id="High">@p.High</strong> F</p>
+                        <p class="weather-temps">@p.Low &#176;F / @p.High <strong id="F">&#176;F</strong></p>
                     }
                     else if ((bool)Session["IsCelsius"])
                     {
-                        <p class="weather-temps"> <strong id="Low">@p.ConvertToCelsius(p.Low)</strong> C / <strong id="High">@p.ConvertToCelsius(p.High)</strong> C </p >
+                        <p class="weather-temps"> @p.ConvertToCelsius(p.Low) &#176;C / @p.ConvertToCelsius(p.High)<strong id="C"> &#176;C </strong></p >
                     }
                     <ul id="weather-recommendations">
                         <li>@p.ToTitleCase(p.Forecast)</li>

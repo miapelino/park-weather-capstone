@@ -190,7 +190,7 @@ th {
 .weather-container {
     background-color: white;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 5px;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -227,7 +227,7 @@ th {
 .survey-container {
     background-color: white;
     width: 35%;
-    border-radius: 15px;
+    border-radius: 5px;
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 15px;
@@ -246,7 +246,7 @@ th {
 
 #survey-image {
     background-color: white;
-    border-radius: 15px;
+    border-radius: 5px;
     margin-top: 30px;
     margin-bottom: 30px;
     overflow: hidden;
@@ -259,7 +259,7 @@ th {
 
 #survey-results-image {
     background-color: white;
-    border-radius: 15px;
+    border-radius: 5px;
     margin-top: 30px;
     margin-bottom: 30px;
     overflow: hidden;
@@ -273,5 +273,10 @@ th {
     padding-bottom:10px
 }
 
-/*Survey Results Page Styles*/
+.survey-required {
+    color: red;
+    font-size: 13px;
+    position: relative;
+    top: -15px;
+}
 

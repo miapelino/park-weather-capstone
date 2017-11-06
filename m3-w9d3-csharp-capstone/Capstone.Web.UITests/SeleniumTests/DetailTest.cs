@@ -37,13 +37,15 @@ namespace Capstone.Web.UITests.SeleniumTests
 
             DetailPage testdetailPage = entryPage.TempConversion(DetailPage.TempTypes.C);
 
-            string result = entryPage.Low.Text;
+            string result = entryPage.C.Text;
 
-            Assert.AreEqual("1", result);
+            Assert.AreEqual("C", result);
 
-            result = entryPage.High.Text;
+            testdetailPage = entryPage.TempConversion(DetailPage.TempTypes.F);
 
-            Assert.AreEqual("11", result);
+            result = entryPage.F.Text;
+
+            Assert.AreEqual("F", result);
 
         }
     }

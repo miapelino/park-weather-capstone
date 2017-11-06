@@ -54,10 +54,7 @@
   <ItemGroup>
     <Compile Include="PageObjects\BasePage.cs" />
     <Compile Include="PageObjects\DetailPage.cs" />
-    <Compile Include="PageObjects\Survey.cs" />
-    <Compile Include="PageObjects\SurveyResult.cs" />
     <Compile Include="SeleniumTests\DetailTest.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

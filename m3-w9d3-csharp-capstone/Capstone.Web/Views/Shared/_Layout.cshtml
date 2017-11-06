@@ -12,8 +12,9 @@
             <img src="~/Content/img/logo2.png" alt="National Parks Geek logo" />
             <nav id="nav">
                 <ul>
-                    <li>@(Html.ActionLink("Home", "Index", "Home", null, new { @id = "navlinks" })) </li>
-                    <li>@(Html.ActionLink("Survey", "Survey", "Survey", null, new { @id = "navlinks" }))</li>
+                    <li>@(Html.ActionLink(" Home ", "Index", "Home", null, new { @id = "navlinks" })) | </li>
+                    <li>@(Html.ActionLink(" Vote ", "Survey", "Survey", null, new { @id = "navlinks" })) | </li>
+                    <li>@(Html.ActionLink(" Favorite Parks ", "SurveyResults", "Survey", null, new {  id = "navlinks"}))</li>
                 </ul>
             </nav>
         </div>

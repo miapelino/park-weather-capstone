@@ -6,20 +6,32 @@ using System.Web.Mvc;
 using Capstone.Web.Dal;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.ComponentModel.DataAnnotations;
 
 namespace Capstone.Web.Models
 {
     public class Survey
     {        
+        //Survey Results data
         public int Votes { get; set; }
-        public string ParkCode { get; set; }
-        public string Email { get; set; }
-        public string State { get; set; }
         public string Name { get; set; }
+
+        //Survey fields/data
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        public string ParkCode { get; set; }
+        public string State { get; set; }
         public string ActivityLevel { get; set; }
 
+        //Properties for <SelectList> text/values
         public string Text { get; set; }
         public string Value { get; set; }
+
+        //Survey dropdown lists
         public SelectList DropDownList { get; set; }
 
         public static List<SelectListItem> ChooseState { get; } = new List<SelectListItem>()
@@ -84,19 +96,7 @@ namespace Capstone.Web.Models
             new SelectListItem() { Text = "active", Value = "active"},
             new SelectListItem() { Text = "extremely active", Value = "extremely active"}
         };
-
         
-
-
-
-
-            //} = new List<SelectListItem>()
-            //{
-            //    new SelectListItem() { Text = "Cuyahoga Valley", Value = "CVNP"},
-            //    new SelectListItem() { Text = "Everglades", Value = "ENP"},
-            //    new SelectListItem() { Text = "Grand Canyon", Value = "GCNP"},
-            //    new SelectListItem() { Text = "Glacier", Value = "GNP"}
-            //};
 
     }
 }
